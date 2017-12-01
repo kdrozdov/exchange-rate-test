@@ -1,0 +1,9 @@
+= javascript_pack_tag 'application'
+
+#vue-home-page
+
+- serialized_rate = ExchangeRateSerializer.new(latest_rate).to_json
+
+javascript:
+  window.initialState = { };
+  window.initialState['exchange_rate'] = JSON.parse('#{ j serialized_rate.html_safe }');
