@@ -17,7 +17,7 @@ export default {
   mounted () {
     this.$store.dispatch('subscribe')
 
-    if (!this.$store.state.exchange_rate) {
+    if (this.$store.state.exchange_rate.empty) {
       this.$store.dispatch('fetchExchangeRate')
     }
     setInterval(() => { this.$store.dispatch('fetchExchangeRate') }, 10000)

@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Vue.prototype.$http = Axios
 
   const store = configureStore(window.initialState)
-  console.log(window.initialState)
 
   const app = new Vue({
     el: '#vue-home-page',

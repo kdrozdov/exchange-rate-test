@@ -19,7 +19,7 @@ module Admin
 
     def exchange_rate_params
       permitted_attributes = %i(value datetime)
-      params.require(:exchange_rate).permit(permitted_attributes)
+      params.fetch(:exchange_rate, { }).permit(permitted_attributes)
     end
   end
 end

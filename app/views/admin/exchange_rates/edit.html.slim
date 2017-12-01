@@ -2,9 +2,9 @@
 
 #vue-edit-rate-page
 
-- serialized_rate = ExchangeRateSerializer.new(latest_rate).to_json
+- serialized_rate = latest_rate.present? ? ExchangeRateSerializer.new(latest_rate) : { empty: true }
 
 javascript:
   window.initialState = { };
   window.initialState['authenticity_token'] = '#{ j form_authenticity_token.html_safe }';
-  window.initialState['exchange_rate'] = JSON.parse('#{ j serialized_rate.html_safe }');
+  window.initialState['exchange_rate'] = JSON.parse('#{ j serialized_rate.to_json.html_safe }');

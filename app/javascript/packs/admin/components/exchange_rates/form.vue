@@ -8,7 +8,7 @@
     .form-group
       label Дата/Время
       .errors(v-if="errors.datetime")
-        span.label.label-danger(v-for="message in errors.datetime") {{ message }}
+        span.label.label-danger.error-label(v-for="message in errors.datetime") {{ message }}
       date-picker.datetime-input(v-model="form.exchange_rate.datetime" type="datetime" format="yyyy-MM-dd HH:mm" v-bind:minute-step="1" lang="ru")
     button.btn.btn-primary(type="submit")  Отправить
 
@@ -63,5 +63,9 @@ export default {
 
   .errors {
     margin-bottom: 10px;
+  }
+
+  .error-label {
+    margin-right: 4px;
   }
 </style>
